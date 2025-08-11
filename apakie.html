@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis - Alur Sistem IoT Data Center Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #F59E0B; /* amber-500 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-400 mb-4">Alur Sistem: Data Center Monitor IoT</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Visualisasi end-to-end dari pengambilan data sensor hingga interaksi pengguna melalui server lokal.</p>
+        </header>
+
+        <main class="space-y-16">
+            
+            <div class="flex flex-col items-center text-center">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border-2 border-sky-500 w-full">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-2">1. Pengambilan Data</h2>
+                    <p class="text-gray-400 mb-4">Titik awal di mana data lingkungan fisik diukur.</p>
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <p class="text-5xl font-bold text-white">🌡️</p>
+                        <p class="text-xl font-semibold mt-2">Sensor DHT22</p>
+                        <p class="text-gray-400">Mengukur Suhu & Kelembaban</p>
+                    </div>
+                </div>
+                <div class="flow-arrow mt-8 animate-bounce">↓</div>
+            </div>
+            
+            <div class="flex flex-col items-center text-center">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border-2 border-teal-500 w-full">
+                    <h2 class="text-2xl font-bold text-teal-400 mb-2">2. Transmisi Data</h2>
+                    <p class="text-gray-400 mb-4">Data mentah dikirim dari perangkat keras ke pusat kendali.</p>
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <p class="text-5xl font-bold text-white">🧠</p>
+                        <p class="text-xl font-semibold mt-2">Mikrokontroler ESP8266</p>
+                        <p class="text-gray-400">Mengirim data via Wi-Fi</p>
+                    </div>
+                </div>
+                <div class="flow-arrow mt-8 animate-bounce">↓</div>
+            </div>
+
+            <div class="flex flex-col items-center text-center">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border-2 border-emerald-500 w-full">
+                    <h2 class="text-2xl font-bold text-emerald-400 mb-2">3. Pusat Kendali (Server Lokal)</h2>
+                    <p class="text-gray-400 mb-4">Otak dari sistem yang memproses, menyimpan, dan merespons data.</p>
+                    <div class="bg-gray-900 p-6 rounded-lg space-y-4">
+                        <div>
+                            <p class="text-xl font-semibold">Node.js & SQLite</p>
+                            <p class="text-gray-400">Menerima, menyimpan, & menganalisis data</p>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4">
+                             <p class="text-lg font-medium text-amber-400">Jika Suhu > Batas</p>
+                             <p class="text-gray-400">Mengirim notifikasi darurat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-amber-500 mt-8 text-4xl font-bold transform rotate-90 md:rotate-0">↔️</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border-2 border-rose-500 w-full h-full flex flex-col">
+                        <h2 class="text-2xl font-bold text-rose-400 mb-2">4. Notifikasi & Kontrol Cepat</h2>
+                        <p class="text-gray-400 mb-4 flex-grow">Peringatan instan dan kontrol darurat melalui pesan.</p>
+                        <div class="bg-gray-900 p-6 rounded-lg">
+                            <p class="text-5xl font-bold text-white">🤖</p>
+                            <p class="text-xl font-semibold mt-2">Telegram Bot</p>
+                            <p class="text-gray-400">Menerima Notifikasi & Perintah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border-2 border-indigo-500 w-full h-full flex flex-col">
+                        <h2 class="text-2xl font-bold text-indigo-400 mb-2">5. Tampilan & Kontrol Pengguna</h2>
+                        <p class="text-gray-400 mb-4 flex-grow">Antarmuka visual untuk pemantauan dan interaksi mendalam.</p>
+                        <div class="bg-gray-900 p-6 rounded-lg">
+                            <p class="text-5xl font-bold text-white">📱</p>
+                            <p class="text-xl font-semibold mt-2">Aplikasi Android</p>
+                            <p class="text-gray-400">Menampilkan Dasbor & Mengirim Perintah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center my-16">
+                <div class="inline-block flow-arrow transform -rotate-90 animate-pulse">⤴</div>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border-2 border-amber-500 mt-4">
+                    <h2 class="text-2xl font-bold text-amber-400 mb-2">Alur Balik (Feedback Loop)</h2>
+                    <p class="text-gray-400">Perintah dari pengguna (via Aplikasi atau Telegram) dikirim kembali dari Server Lokal ke ESP8266 untuk mengontrol perangkat pendingin (blower).</p>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+</body>
+</html>

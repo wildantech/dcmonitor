@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Proyek: Data Center Monitor (IoT)</title>
+    <!-- Tailwind CSS CDN untuk styling yang modern dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        /* Animasi Latar Belakang Gradien */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #1a1a2e, #162447, #1f4068, #1a1a2e);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            color: #ffffff;
+            /* Hapus overflow: hidden agar bisa di-scroll */
+        }
+
+        /* Container tidak lagi menggunakan scroll-snap */
+        .slides-container {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Gaya dasar untuk setiap slide, sekarang menjadi section di halaman panjang */
+        .slide {
+            min-height: 100vh; /* Menggunakan min-height agar konten tidak terpotong */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8rem 4rem; /* Padding lebih besar untuk estetika */
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+            transition: background-image 0.8s ease-in-out;
+            margin-bottom: 2rem; /* Tambah margin antar-slide */
+        }
+        
+        /* Overlay untuk membuat teks lebih mudah dibaca */
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        /* Konten utama di dalam slide */
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        /* Animasi masuk yang diperbarui */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide.is-visible .fade-in {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Gaya untuk elemen-elemen di slide */
+        .slide h1, .slide h2 {
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        
+        .slide p {
+            font-weight: 300;
+            font-size: 1.25rem;
+        }
+
+        .slide ul {
+            text-align: left;
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+
+        .slide li {
+            font-weight: 400;
+            position: relative;
+            padding-left: 25px;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .slide li:before {
+            content: "•";
+            color: #00e0ff;
+            font-size: 1.8em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .slide img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .slide a {
+            transition: transform 0.3s ease;
+        }
+        
+        .slide a:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-[#1a1a2e]">
+
+    <div class="slides-container">
+        
+        <!-- Slide 1: Halaman Judul -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white">
+                <h1 class="text-7xl font-extrabold fade-in mb-6">Sistem Monitoring Suhu Data Center Berbasis IoT</h1>
+                <p class="text-3xl font-light fade-in delay-200">Laporan Proyek: Data Center Monitor (IoT)</p>
+                <p class="mt-12 text-2xl font-medium fade-in delay-500">Disusun oleh: Wildan Ulul Aufa</p>
+            </div>
+        </section>
+
+        <!-- Slide 2: Latar Belakang -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white">
+                <h2 class="text-5xl font-semibold fade-in mb-8">Latar Belakang Proyek</h2>
+                <p class="text-2xl fade-in delay-200">Tantangan: Kebutuhan akan pemantauan suhu dan kelembaban yang konsisten di data center untuk mencegah kerusakan hardware dan downtime server.</p>
+                <p class="text-2xl mt-6 fade-in delay-500">Solusi: Mengembangkan sistem IoT yang efektif dan efisien, ditenagai oleh server lokal untuk real-time monitoring dan kontrol penuh tanpa ketergantungan pada layanan cloud eksternal.</p>
+            </div>
+        </section>
+
+        <!-- Slide 3: Tujuan -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white text-left">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Tujuan Proyek</h2>
+                <ul class="text-2xl mx-auto w-full max-w-lg list-none p-0 fade-in delay-200">
+                    <li>Pemantauan Otomatis suhu dan kelembaban 24/7.</li>
+                    <li>Notifikasi Cepat melalui Telegram Bot jika terjadi anomali suhu.</li>
+                    <li>Kontrol Jarak Jauh perangkat pendingin (blower) via aplikasi Android.</li>
+                    <li>Pencatatan Data historis dalam database lokal untuk analisis performa.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 4: Diagram Alur Kerja -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white text-left">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Diagram Alur Kerja Sistem</h2>
+                <div class="fade-in delay-200 text-center">
+                    <!-- Perubahan di sini: Gambar sekarang dibungkus dengan tag <a> untuk menjadi link -->
+                    <a href="apakie.html">
+                        <img src="flowchart_landscape.jpg" alt="Diagram Alur Sistem" class="mt-8 w-full max-w-2xl mx-auto">
+                    </a>
+                    <p class="mt-4 text-xl font-light">Visualisasi bagaimana data mengalir dari sensor ke pengguna.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Komponen 1 - Perangkat Keras (IoT) -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white text-left">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Komponen: Perangkat Keras</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12 fade-in delay-200">
+                    <img src="rangkaian.png" alt="Skema Rangkaian Hardware" class="lg:w-1/2">
+                    <ul class="text-2xl lg:w-1/2 list-none p-0">
+                        <li>Mikrokontroler ESP8266: Otak dari sistem, terhubung ke sensor dan Wi-Fi.</li>
+                        <li>Sensor DHT11: Mengukur suhu dan kelembaban dengan akurasi tinggi.</li>
+                        <li>Modul Relay: Menjadi jembatan untuk mengontrol perangkat pendingin.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Komponen 2 - Backend (Server Lokal) -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white text-left">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Komponen: Backend (Server Lokal)</h2>
+                <ul class="text-2xl mx-auto w-full max-w-2xl list-none p-0 fade-in delay-200">
+                    <li>Node.js & Express.js: Digunakan untuk membangun server web yang ringan dan cepat.</li>
+                    <li>Database SQLite: Menyimpan data historis secara lokal, efisien, dan tanpa konfigurasi rumit.</li>
+                    <li>API REST: Menyediakan antarmuka komunikasi antara hardware, aplikasi mobile, dan Telegram bot.</li>
+                </ul>
+                <img src="server.png" alt="Arsitektur Server Lokal" class="mt-8 w-full max-w-xl mx-auto fade-in delay-400">
+            </div>
+        </section>
+
+        <!-- Slide 7: Komponen 3 - Aplikasi Mobile & Telegram Bot -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white text-left">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Komponen: Aplikasi Mobile & Notifikasi</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12 fade-in delay-200">
+                    <img src="mobile.jpg" alt="Tampilan Dashboard Aplikasi" class="lg:w-1/2">
+                    <ul class="text-2xl lg:w-1/2 list-none p-0">
+                        <li>Aplikasi Android (Kotlin): Dashboard visual untuk pemantauan real-time dan kontrol jarak jauh.</li>
+                        <li>Telegram Bot: Mengirimkan notifikasi suhu secara instan dan dapat menerima perintah kontrol.</li>
+                        <li>Integrasi Mulus: Aplikasi dan bot terhubung langsung ke server lokal.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Proses Pengerjaan & Prototipe -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Prototipe Fisik</h2>
+                <p class="text-2xl fade-in delay-200">Prototipe fisik sistem ini telah dirancang, dibuat, dan diuji untuk memastikan semua komponen bekerja secara sinergis.</p>
+                <img src="casing2.png" alt="Foto Prototipe Hardware" class="mt-8 w-full max-w-2xl mx-auto fade-in delay-400">
+            </div>
+        </section>
+
+        <!-- Slide 9: Kendala dan Solusi -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Kendala dan Solusi</h2>
+                <ul class="text-2xl mx-auto w-full max-w-2xl list-none p-0 fade-in delay-200">
+                    <li class="mb-6">Kendala: Konfigurasi alamat IP statis untuk server di aplikasi Android. Solusi: Menggunakan alamat IP lokal yang tetap dan memastikan semua perangkat berada di jaringan Wi-Fi yang sama.</li>
+                    <li>Kendala: Keterbatasan fitur pada layanan cloud gratis. Solusi: Beralih ke server lokal dengan stack teknologi yang open-source untuk kontrol penuh dan fleksibilitas tanpa biaya.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 10: Hasil Akhir dan Manfaat -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white">
+                <h2 class="text-5xl font-semibold fade-in mb-8 text-center">Hasil Akhir & Manfaat</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12 fade-in delay-200">
+                    <div class="text-left lg:w-1/2">
+                        <p class="text-2xl mb-4">Sistem berhasil memantau, memberi notifikasi, dan mengontrol perangkat pendingin secara real-time.</p>
+                        <p class="text-2xl font-semibold mt-6">Manfaat Utama:</p>
+                        <ul class="text-xl list-none p-0 mt-4">
+                            <li>Mandiri dan Aman: Tidak bergantung pada layanan pihak ketiga, data tersimpan di server lokal.</li>
+                            <li>Fleksibilitas: Memantau dan mengontrol perangkat dari mana saja di dalam jaringan.</li>
+                            <li>Efisiensi Biaya: Menggunakan hardware dan software open-source yang terjangkau.</li>
+                        </ul>
+                    </div>
+                    <img src="telegram.png" alt="Tampilan Notifikasi Telegram Bot" class="lg:w-1/2">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Penutup -->
+        <section class="slide">
+            <div class="slide-overlay"></div>
+            <div class="slide-content text-white">
+                <h1 class="text-7xl font-extrabold fade-in mb-6">Terima Kasih</h1>
+                <p class="text-3xl font-light fade-in delay-200">Ada pertanyaan?</p>
+                <div class="mt-12 fade-in delay-500">
+                    <p class="text-2xl font-medium">Dokumentasi Proyek Lengkap:</p>
+                    <a href="#" class="text-sky-400 text-2xl hover:text-sky-300 transition-colors">Link Proyek GitHub Anda di Sini</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // IntersectionObserver akan mengamati setiap slide (sekarang section)
+        // dan menambahkan kelas 'is-visible' saat masuk ke viewport.
+        const slides = document.querySelectorAll('.slide');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger saat 20% elemen terlihat
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => {
+            observer.observe(slide);
+        });
+    </script>
+</body>
+</html>
